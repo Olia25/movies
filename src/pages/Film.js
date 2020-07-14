@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import {API_URL} from "../constants";
 import EntityLink from "../components/EntityLink";
+import {Row, Col} from "antd"
 
 const Film = () => {
     const [data, setData] = useState(null)
@@ -24,12 +25,18 @@ const Film = () => {
     return (
         <Fragment>
             {data && (
-                <div>
-                    <div>{`Title: ${data.title}`}</div>
-                    characters:
-                    {data.characters.map(url => <EntityLink key={url} url={url} />)}
+                <Row    justify="center">
+                    <Col span={18} className="coverForDate">
+                        <h1>Title: {data.title}</h1>
 
-                </div>
+                        <h3>Director: {data.director}</h3>
+                        <h3>Producer: {data.producer}</h3>
+                        <h3>Release date: {data.release_date}</h3>
+                        <h3>Director: {data.director}</h3>
+                   <p>Characters:
+                       {data.characters.map(url => <EntityLink key={url} url={url} />)}</p>
+                </Col>
+                </Row>
             )}
         </Fragment>
     )
