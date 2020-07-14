@@ -7,22 +7,21 @@ import {Col, Collapse, Row} from "antd";
 
 const { Panel } = Collapse;
 
-const People = () => {
+const Planets = () => {
     const [data, setData] = useState(null)
-    const { peopleId } = useParams()
+    const { planetsId } = useParams()
 
-    const fetchDataPeople = async () => {
+    const fetchDataPlanets = async () => {
         try{
-            const response = await axios.get(`${API_URL}/people/${peopleId}/`)
+            const response = await axios.get(`${API_URL}/planets/${planetsId}/`)
             setData(response.data)
-            console.log(response.data)
         } catch (e) {
             console.log("error:", e.message)
         }
     }
 
     useEffect( () => {
-        fetchDataPeople()
+        fetchDataPlanets()
     }, [])
 
     return (
@@ -30,25 +29,23 @@ const People = () => {
             {data && (
                 <Row  justify="center">
                     <Col span={18} className="coverForDate">
-
-                        <h1 className="colorOfTitle">Name: {data.name}</h1>
-                        <h3> Height: {data.height}</h3>
-                        <h3> Mass: {data.mass}</h3>
-                        <h3> Hair color: {data.hair_color}</h3>
-                        <h3> Skin color: {data.skin_color}</h3>
-                        <h3> Eye color: {data.eye_color}</h3>
-                        <h3> Birth year: {data.birth_year}</h3>
-                        <h3> Gender: {data.gender}</h3>
-                        <h3> Eye color: {data.eye_color}</h3>
+                        <h1 className="colorOfTitle"> Name: {data.name}</h1>
+                        <h3> Rotation period: {data.rotation_period}</h3>
+                        <h3> Orbital period: {data.orbital_period}</h3>
+                        <h3> Diameter: {data.diameter}</h3>
+                        <h3> Climate: {data.climate}</h3>
+                        <h3> Gravity: {data.gravity}</h3>
+                        <h3> Terrain: {data.terrain}</h3>
+                        <h3> Surface water: {data.surface_water}</h3>
+                        <h3> Population: {data.population}</h3>
                         <Collapse>
-                            <Panel showArrow={false} header="Homeworld">
-                                {/*{data.homeworld(url => <EntityLink key={url} url={url} />)}*/}
+                            <Panel showArrow={false} header="Residents">
+                                {data.residents.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
                             <Panel showArrow={false} header="Films">
                                 {data.films.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
                         </Collapse>
-
                     </Col>
                 </Row>
             )}
@@ -56,4 +53,4 @@ const People = () => {
     )
 }
 
-export default People
+export default Planets

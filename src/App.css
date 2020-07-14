@@ -24,8 +24,19 @@ body{
   background-color: rgba(255,255,255,0.7);
   margin: 50px 0;
 }
+.colorOfTitle{
+  color: yellow;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  text-shadow: red 0 0 2px;
+}
 .coverForDate{
   background-color: rgba(255,255,255,0.7);
+  text-align: center;
+  border: 3px inset #c10000;
+}
+.openingCrawl{
+  background-color: #ffffff;
+  padding: 15px 45px;
 }
 
 @media only screen and (max-width: 702px) {

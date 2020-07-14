@@ -11,7 +11,7 @@ import {
 import Films from './pages/Films';
 import Film from './pages/Film';
 import People from "./pages/People";
-// import Planets from "./pages/Planets";
+import Planets from "./pages/Planets";
 
 
 function App() {
@@ -29,6 +29,9 @@ function App() {
           <Route path="/people/:peopleId">
             <People />
           </Route>
+            <Route path="/planets/:planetsId">
+                <Planets />
+            </Route>
           <Route path="/">
             <Films />
           </Route>

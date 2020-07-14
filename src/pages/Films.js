@@ -52,8 +52,6 @@ const Films = () => {
                         <div  className="borderOfTitle">
                           <h2>{title}</h2>
                         </div>
-
-
                         </Link>
                     ))}
             </Row>
