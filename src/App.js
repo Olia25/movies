@@ -1,25 +1,40 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'antd/dist/antd.css';
+import {Divider} from 'antd'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import Films from './pages/Films';
+import Film from './pages/Film';
+import People from "./pages/People";
+// import Planets from "./pages/Planets";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      <Router>
+        <Divider orientation="left"  className='aaa'>
+          <Link to="/">
+            <img className="logo" src="https://pngimg.com/uploads/star_wars_logo/star_wars_logo_PNG7.png"/>
+          </Link>
+        </Divider>
+        <Switch>
+          <Route path="/films/:filmId">
+            <Film />
+          </Route>
+          <Route path="/people/:peopleId">
+            <People />
+          </Route>
+          <Route path="/">
+            <Films />
+          </Route>
+        </Switch>
+      </Router>
+
   );
 }
 
