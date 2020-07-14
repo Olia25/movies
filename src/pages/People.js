@@ -39,13 +39,18 @@ const People = () => {
                         <h3> Eye color: {data.eye_color}</h3>
                         <h3> Birth year: {data.birth_year}</h3>
                         <h3> Gender: {data.gender}</h3>
-                        <h3> Eye color: {data.eye_color}</h3>
                         <Collapse>
-                            <Panel showArrow={false} header="Homeworld">
-                                {/*{data.homeworld(url => <EntityLink key={url} url={url} />)}*/}
+                            <Panel showArrow={false} header="Homeworld" key="1">
+                                 <EntityLink url={data.homeworld} />
                             </Panel>
-                            <Panel showArrow={false} header="Films">
-                                {data.films.map(url => <EntityLink key={url} url={url} />)}
+                            <Panel showArrow={false} header="Films" key="2">
+                                {data.films.length <= 0 ?  <p> Nothing is found </p> : data.films.map(url => <EntityLink key={url} url={url} />)}
+                            </Panel>
+                            <Panel showArrow={false} header="Starships" key="3">
+                                {data.starships.length <= 0 ?  <p> Nothing is found </p> : data.starships.map(url => <EntityLink key={url} url={url} />)}
+                            </Panel>
+                            <Panel showArrow={false} header="Species" key="4">
+                                {data.species.length <= 0 ? <p> Nothing is found </p>  : data.species.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
                         </Collapse>
 

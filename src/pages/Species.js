@@ -7,21 +7,22 @@ import {Col, Collapse, Row} from "antd";
 
 const { Panel } = Collapse;
 
-const Planets = () => {
+const Species = () => {
     const [data, setData] = useState(null)
-    const { planetsId } = useParams()
+    const { speciesId } = useParams()
 
-    const fetchDataPlanets = async () => {
+    const fetchDataSpecies = async () => {
         try{
-            const response = await axios.get(`${API_URL}/planets/${planetsId}/`)
+            const response = await axios.get(`${API_URL}/species/${speciesId}/`)
             setData(response.data)
+            console.log(response.data)
         } catch (e) {
             console.log("error:", e.message)
         }
     }
 
     useEffect( () => {
-        fetchDataPlanets()
+        fetchDataSpecies()
     }, [])
 
     return (
@@ -29,23 +30,25 @@ const Planets = () => {
             {data && (
                 <Row  justify="center">
                     <Col span={18} className="coverForDate">
-                        <h1 className="colorOfTitle"> Name: {data.name}</h1>
-                        <h3> Rotation period: {data.rotation_period}</h3>
-                        <h3> Orbital period: {data.orbital_period}</h3>
-                        <h3> Diameter: {data.diameter}</h3>
-                        <h3> Climate: {data.climate}</h3>
-                        <h3> Gravity: {data.gravity}</h3>
-                        <h3> Terrain: {data.terrain}</h3>
-                        <h3> Surface water: {data.surface_water}</h3>
-                        <h3> Population: {data.population}</h3>
+
+                        <h1 className="colorOfTitle">Name: {data.name}</h1>
+                        <h3> Classification: {data.classification}</h3>
+                        <h3> Designation: {data.designation}</h3>
+                        <h3> Average_height: {data.average_height}</h3>
+                        <h3> Skin color: {data.skin_color}</h3>
+                        <h3> Eye color: {data.eye_color}</h3>
+                        <h3> Average lifespan: {data.average_lifespan}</h3>
+                        <h3> Homeworld: {data.homeworld}</h3>
+                        <h3> Language: {data.language}</h3>
                         <Collapse>
-                            <Panel showArrow={false} header="Residents" key="1">
-                                {data.residents.map(url => <EntityLink key={url} url={url} />)}
+                            <Panel showArrow={false} header="People" key="1">
+                                {data.people.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
                             <Panel showArrow={false} header="Films" key="2">
                                 {data.films.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
                         </Collapse>
+
                     </Col>
                 </Row>
             )}
@@ -53,4 +56,4 @@ const Planets = () => {
     )
 }
 
-export default Planets
+export default Species

@@ -49,9 +49,9 @@ const Films = () => {
             <Row className="marginFilm" justify="space-around">
                     {filteredFilms.map(({title, url}) =>(
                         <Link key={url} to={getRoutUrl(url)}>
-                        <div  className="borderOfTitle">
-                          <h2>{title}</h2>
-                        </div>
+                            <div className="borderOfTitle">
+                                <h2>{title}</h2>
+                            </div>
                         </Link>
                     ))}
             </Row>

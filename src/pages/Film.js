@@ -30,18 +30,26 @@ const Film = () => {
             {data && (
                 <Row  justify="center">
                     <Col span={18} className="coverForDate">
-                        <h1 className="colorOfTitle"> {data.title}</h1>
+                        <h1 className="colorOfTitle"> "{data.title}"</h1>
                         <h3 className="openingCrawl">Opening crawl: {data.opening_crawl}</h3>
                         <h3>Director: {data.director}</h3>
                         <h3>Producer: {data.producer}</h3>
                         <h3>Release date: {data.release_date}</h3>
-                        <h3>Director: {data.director}</h3>
                         <Collapse>
-                            <Panel showArrow={false} header="Characters">
+                            <Panel showArrow={false} header="Characters" key="1">
                                {data.characters.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
-                            <Panel showArrow={false}  header="Planets">
+                            <Panel showArrow={false}  header="Planets" key="2">
                                 {data.planets.map(url => <EntityLink key={url} url={url} />)}
+                            </Panel>
+                            <Panel showArrow={false}  header="Starships" key="3">
+                                {data.starships.map(url => <EntityLink key={url} url={url} />)}
+                            </Panel>
+                            <Panel showArrow={false} header="Vehicles" key="4">
+                                {data.vehicles.map(url => <EntityLink key={url} url={url} />)}
+                            </Panel>
+                            <Panel showArrow={false} header="Species" key="5">
+                                {data.species.map(url => <EntityLink key={url} url={url} />)}
                             </Panel>
                         </Collapse>
                     </Col>
