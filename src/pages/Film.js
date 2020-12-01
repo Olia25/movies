@@ -30,7 +30,8 @@ const Film = () => {
             {data && (
                 <Row  justify="center">
                     <Col span={18} className="coverForDate">
-                        <h1 className="colorOfTitle"> "{data.title}"</h1>
+                        <p>Hi</p>
+                       <h1 className="colorOfTitle"> "{data.title}"</h1>
                         <h3 className="openingCrawl">Opening crawl: {data.opening_crawl}</h3>
                         <h3>Director: {data.director}</h3>
                         <h3>Producer: {data.producer}</h3>
