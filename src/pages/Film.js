@@ -25,6 +25,8 @@ const Film = () => {
         fetchDataFilm()
     }, [])
 
+    console.log("data validation")
+
     return (
         <Fragment>
             {data && (
