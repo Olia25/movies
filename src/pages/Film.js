@@ -15,7 +15,6 @@ const Film = () => {
         try{
             const response = await axios.get(`${API_URL}/films/${filmId}/`)
             setData(response.data)
-            console.log(response.data)
         } catch (e) {
             console.log("error:", e.message)
         }
@@ -25,14 +24,11 @@ const Film = () => {
         fetchDataFilm()
     }, [])
 
-    console.log("data validation")
-
     return (
         <Fragment>
             {data && (
                 <Row  justify="center">
                     <Col span={18} className="coverForDate">
-                        <p>Hi</p>
                        <h1 className="colorOfTitle"> "{data.title}"</h1>
                         <h3 className="openingCrawl">Opening crawl: {data.opening_crawl}</h3>
                         <h3>Director: {data.director}</h3>

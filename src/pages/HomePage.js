@@ -6,7 +6,7 @@ import axios from 'axios'
 import { Link } from "react-router-dom";
 import {getRoutUrl} from "../utils";
 
-const Films = () => {
+const HomePage = () => {
     const [data, setData] = useState([])
     const [text, setText] = useState("")
 
@@ -59,4 +59,4 @@ const Films = () => {
     )
 }
 
-export default Films;
+export default HomePage;

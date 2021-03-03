@@ -8,7 +8,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import Films from './pages/Films';
+import HomePage from './pages/HomePage';
 import Film from './pages/Film';
 import People from "./pages/People";
 import Planets from "./pages/Planets";
@@ -44,7 +44,7 @@ function App() {
                 <Species />
             </Route>
           <Route path="/">
-            <Films />
+            <HomePage />
           </Route>
         </Switch>
       </Router>
